@@ -68,7 +68,8 @@ platform_do_upgrade() {
 		;;
 	compex,wpq873|\
 	edimax,cax1800|\
-	netgear,wax218)
+	netgear,wax218|\
+	netgear,wax620)
 		nand_do_upgrade "$1"
 		;;
 	prpl,haze|\
