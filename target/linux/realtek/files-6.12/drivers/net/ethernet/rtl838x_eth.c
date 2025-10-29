@@ -1192,8 +1192,10 @@ static int rtl838x_hw_receive(struct net_device *dev, int r, int budget)
 		h = &ring->rx_header[r][ring->c_rx[r]];
 		data = (u8 *)KSEG1ADDR(h->buf);
 		len = h->len;
-		if (!len)
-			break;
+		if (!len) {
+		  pr_info("got empty block, but not consumend\n");
+		  break;
+		}
 		work_done++;
 
 		len -= 4; /* strip the CRC */
